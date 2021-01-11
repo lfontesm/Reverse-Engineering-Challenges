@@ -58,7 +58,15 @@ Before continuing, I'd like to highlight how the loop works.
 
 ![Screenshot_20210111_103707](https://user-images.githubusercontent.com/28660375/104189092-f86fbf80-53f8-11eb-88be-d4a7cf6a0933.png)
 
-
+The order of operation goes
+```
+    key     = [username[0] = 'A'] * 1;
+    auxSalt = [username[0] = 'A'];
+```
+Which means, in terms of math operations:
+```
+    key = x * 1;
+```
 
 
 
