@@ -135,6 +135,39 @@ if (((a-b<0.0) && (0<serialKey[0] - serialKey[19]) &&
 Where `a = pow(serialKey[19], serialKey[1]);` and `b = pow(serialKey[0], serialKey[2]);`
 
 Note that condition 3 is the easiest to meet, you could play with the slidebar on [Desmos](https://www.desmos.com/) and find a value of `x` that satisfies said condition. I think `'D'` does it, but still it wouldn't meet the first two.
-Also note how both condition 1 and 2 are intertwined. For condition 1, we need `b > a`, and since our inputs are all composed by the same characters, if you pay close attention, all we need is that `'serialKey[0] > serialKey[any other pos]`, and that would automatically satisfy condition 2. Now all we need to do is tweek the equation a little bit and finally get to where we want. Lets assume `m = serialKey[0]`.
+Also note how both condition 1 and 2 are intertwined. For condition 1, we need `b > a`, and since our inputs are all composed by the same characters, if you pay close attention, all we need is `'serialKey[0] > serialKey[any other pos]`, and that would automatically satisfy condition 2. Now all we need to do is tweek the equation a little bit and finally get to where we want. Lets assume `m = serialKey[0]`, the new order of operation will look like this:
+
+The order of operation goes
+```
+    key     = [username[0] =  m ] * 1;
+    auxSalt = [username[0] =  m ];
+```
+Which means, in terms of math operations:
+```
+    key = m * 1;
+```
+On the next iteration, we'll have:
+```
+    key     = [username[1] = 'A'] * [username[0] =  m ];
+    auxSalt = [username[1] = 'A'];
+```
+Which means, in terms of math operations:
+```
+    key = 'A' * m;
+```
+And the new equation will look like this:
+```
+    key = m + x * m + 23x^2
+```
+This means:
+```
+    1. key = 153000 - x * (x + n)
+    2. m + x * m + x^23 = 153000 - x^2 + n * x
+    3. m(1 + x) + n * x + 24x^2 - 153000 = 0
+```
+Will give us:
+
+![Screenshot_20210111_140257](https://user-images.githubusercontent.com/28660375/104214052-c28d0400-5415-11eb-8302-cd2212150ad9.png) ![Screenshot_20210111_140359](https://user-images.githubusercontent.com/28660375/104214176-e2bcc300-5415-11eb-80a9-daed4a5d0172.png)
+
 
 
