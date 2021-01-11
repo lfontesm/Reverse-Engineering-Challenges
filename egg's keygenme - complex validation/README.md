@@ -165,7 +165,7 @@ This means:
     2. m + x * m + x^23 = 153000 - x^2 + n * x
     3. m(1 + x) + n * x + 24x^2 - 153000 = 0
 ```
-Will give us:
+If you play with the slidebars a little bit, you'll see (note that there's probably numerous other solutions, this is just the first I reached):
 
 ![Screenshot_20210111_140257](https://user-images.githubusercontent.com/28660375/104214052-c28d0400-5415-11eb-8302-cd2212150ad9.png) ![Screenshot_20210111_140359](https://user-images.githubusercontent.com/28660375/104214176-e2bcc300-5415-11eb-80a9-daed4a5d0172.png)
 
