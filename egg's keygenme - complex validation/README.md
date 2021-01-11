@@ -124,7 +124,7 @@ Got here
 Incorrect serial key
 ```
 It's noticable that we still have 3 conditions to check. Which are:
-```
+```C
 if (((a-b<0.0) && (0<serialKey[0] - serialKey[19]) &&
      (serialKey[12]+serialKey[7]<140)) && 
      (serialKey[10]*serialKey[8]<=serialKey[16]*serialKey[4])){
