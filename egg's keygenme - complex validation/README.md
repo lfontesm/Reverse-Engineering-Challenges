@@ -100,9 +100,11 @@ Now lets remind ourselves about `if (key == 153000 - username[0] * salt)`. Assum
 ```
 This is not yet the final solution, since it's still lacking thought. But with it, you can already understand how to go on. I'll use a graphic calculator to show how to use this equation. My graphic calculator of choice is [Desmos.](https://www.desmos.com/)
 
-Here's the input with `n` as `userLen`: ![Screenshot_20210111_112438](https://user-images.githubusercontent.com/28660375/104194069-9c5c6980-53ff-11eb-8e95-6913c56cd961.png)
+Here's the input with `n` as `userLen`: 
+![Screenshot_20210111_112438](https://user-images.githubusercontent.com/28660375/104194069-9c5c6980-53ff-11eb-8e95-6913c56cd961.png)
 
-And where the graphic crosses the absissa: ![Screenshot_20210111_112530](https://user-images.githubusercontent.com/28660375/104194198-bdbd5580-53ff-11eb-9b2a-7502548527f9.png)
+And where the graphic crosses the absissa: 
+![Screenshot_20210111_112530](https://user-images.githubusercontent.com/28660375/104194198-bdbd5580-53ff-11eb-9b2a-7502548527f9.png)
 
 
 
