@@ -25,3 +25,6 @@ Without further ado, let us begin.
 First step is opening the binary with your favorite disassembler/reverse engineering tool. In my case I'll use [Ghidra.](https://ghidra-sre.org/)
 
 The code itself is very straightforward:
+![Screenshot_20210111_095226](https://user-images.githubusercontent.com/28660375/104185037-2a7e2300-53f3-11eb-917d-48b02713e813.png)
+
+For untrained eyes (We've all been there) it may seem a little too much. But it's actually a very simple code, just a lot of operations. But, for everyone's sake, I've "translated" this into a more sanitized code. And I've called it... you guessed it 
