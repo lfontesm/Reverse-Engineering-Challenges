@@ -56,10 +56,10 @@ int main(int argc,char **argv){
                     double a=pow(serialKey[19], serialKey[1]);
                     double b=pow(serialKey[0], serialKey[2]);
 
-                    puts(itob((a-b<0.0)));
-                    puts(itob((0<serialKey[0] - serialKey[19])));
-                    puts(itob((serialKey[12]+serialKey[7]<140)));
-                    puts(itob((serialKey[10]*serialKey[8]<=serialKey[16]*serialKey[4])));
+                    puts("(a-b<0.0):                                                "itob((a-b<0.0)));
+                    puts("(0<serialKey[0] - serialKey[19]):                         "itob((0<serialKey[0] - serialKey[19])));
+                    puts("(serialKey[12]+serialKey[7]<140):                         "itob((serialKey[12]+serialKey[7]<140)));
+                    puts("(serialKey[10]*serialKey[8]<=serialKey[16]*serialKey[4]): "itob((serialKey[10]*serialKey[8]<=serialKey[16]*serialKey[4])));
 
 
                     if (((a-b<0.0) && (0<serialKey[0] - serialKey[19]) &&
