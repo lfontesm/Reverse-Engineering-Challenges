@@ -54,7 +54,7 @@ Now this is pretty much all we need to reach the solution I did. We have all the
 `./keygenme AAAAA AAAAAAAAAAAAAAAAAAAAAAAAA`
 * With that assumption, we can call the character forming the input string `x` for the equation we'll be working with.
 
-Before continuing, I'd like to highlight how the loop works.
+Before continuing, I'd like to highlight how the loop works, using a shorter version of `serialKey`, with `serialLen` of 4.
 
 ![Screenshot_20210111_104310](https://user-images.githubusercontent.com/28660375/104189737-d88ccb80-53f9-11eb-9890-653f2a690f1c.png)
 
@@ -67,9 +67,22 @@ Which means, in terms of math operations:
 ```
     key = x * 1;
 ```
+On the next iteration, we'll have:
 
+![Screenshot_20210111_104517](https://user-images.githubusercontent.com/28660375/104189936-20135780-53fa-11eb-9e61-197e59233e85.png)
 
-
+```
+    key     = [username[1] = 'A'] * [username[0] = 'A'];
+    auxSalt = [username[1] = 'A'];
+```
+Which means, in terms of math operations:
+```
+    key = x * x;
+```
+The point I'm trying to make is, given whichever length `serialKey` will have, the corresponding summation of operations will be:
+```
+    key = x + x^(serialLen-1)
+```
 
 
 
