@@ -32,14 +32,14 @@ For untrained eyes (We've all been there) it may seem a little too much. But it'
 But I want to call your attention specifically to:
 
 ```C
-                int key    =0;
-                int auxSalt=1;
-                int counter=0;
-                while (counter < serialLen){
-                    key+=serialKey[counter]*auxSalt;
-                    auxSalt=serialKey[counter];
-                    counter++;
-                }
+int key    =0;
+int auxSalt=1;
+int counter=0;
+while (counter < serialLen){
+    key+=serialKey[counter]*auxSalt;
+    auxSalt=serialKey[counter];
+    counter++;
+}
 
 ```
 Where `serialLen = 25` 
