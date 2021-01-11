@@ -56,7 +56,7 @@ Now this is pretty much all we need to reach the solution I did. We have all the
 
 Before continuing, I'd like to highlight how the loop works.
 
-![Screenshot_20210111_103707](https://user-images.githubusercontent.com/28660375/104189092-f86fbf80-53f8-11eb-88be-d4a7cf6a0933.png)
+![Screenshot_20210111_104310](https://user-images.githubusercontent.com/28660375/104189737-d88ccb80-53f9-11eb-9890-653f2a690f1c.png)
 
 The order of operation goes
 ```
