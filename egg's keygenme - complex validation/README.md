@@ -45,7 +45,7 @@ while (counter < serialLen){
 if (key == 153000 - username[0] * salt) ... 
 
 ```
-Where `serialLen = 25` and `salt = username[1] + userLen` (Refer to [sanitized_keygen.c](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/egg's%20keygenme%20-%20complex%20validation/sanitized_keygen.c), we'll be forcing the third case of the if/else)
+Where `serialLen = 25` and `salt = username[1] + userLen` (Refer to [sanitized_keygen.c](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/egg's%20keygenme%20-%20complex%20validation/sanitized_keygen.c), we'll be forcing the third case of the if/else statement)
 
 Now this is pretty much all we need to reach the solution I did. We have all the tool need to convert this into an equantion:
 * `auxSalt`'s initial value is 1.
@@ -92,6 +92,19 @@ Back to the matter at hand, we find that the final equation will have the form o
 ```
     key = x + x^24
 ```
+Now lets remind ourselves about `if (key == 153000 - username[0] * salt)`. Assume `userLen = n`. This means:
+```
+    1. key = 153000 - x * (x + n)
+    2. x + x^24 = 153000 - x^2 + n * x
+    3. x + n*x + 25*x^2 - 153000 = 0
+```
+This is not yet the final solution, since it's still lacking thought. But with it, you can already understand how to go on. I'll use a graphic calculator to show how to use this equation. My graphic calculator of choice is [Desmos.](https://www.desmos.com/)
+
+Here's the input with `n` as `userLen`: ![Screenshot_20210111_112438](https://user-images.githubusercontent.com/28660375/104194069-9c5c6980-53ff-11eb-8e95-6913c56cd961.png)
+
+And where the graphic crosses the absissa: ![Screenshot_20210111_112530](https://user-images.githubusercontent.com/28660375/104194198-bdbd5580-53ff-11eb-9b2a-7502548527f9.png)
+
+
 
 
 
