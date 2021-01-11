@@ -55,7 +55,8 @@ Now this is pretty much all we need to reach the solution I did. We have all the
 * With that assumption, we can call the character forming the input string `x` for the equation we'll be working with.
 
 Before continuing, I'd like to highlight how the loop works.
-![Screenshot_20210111_103558](https://user-images.githubusercontent.com/28660375/104188995-d1b18900-53f8-11eb-90dc-2ecdb56177b2.png)
+
+![Screenshot_20210111_103707](https://user-images.githubusercontent.com/28660375/104189092-f86fbf80-53f8-11eb-88be-d4a7cf6a0933.png)
 
 
 
