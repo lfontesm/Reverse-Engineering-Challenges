@@ -36,7 +36,7 @@ int key    =0;
 int auxSalt=1;
 int counter=0;
 while (counter < serialLen){
-    key+=serialKey[counter]*auxSalt;
+    key   +=serialKey[counter]*auxSalt;
     auxSalt=serialKey[counter];
     counter++;
 }
