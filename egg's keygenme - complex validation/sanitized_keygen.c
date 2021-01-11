@@ -41,7 +41,7 @@ int main(int argc,char **argv){
                 int auxSalt=1;
                 int counter=0;
                 while (counter < serialLen){
-                    key+=serialKey[counter]*auxSalt;
+                    key   +=serialKey[counter]*auxSalt;
                     auxSalt=serialKey[counter];
                     counter++;
                 }
