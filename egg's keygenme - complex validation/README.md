@@ -41,9 +41,21 @@ while (counter < serialLen){
     counter++;
 }
     ...
+    
 if (key == 153000 - username[0] * salt) ... 
+
 ```
-Where `serialLen = 25` 
+Where `serialLen = 25` and `salt = username[1] + userLen`
+
+Now this is pretty much all we need to reach the solution I did. We have all the tool need to convert this into an equantion:
+* `auxSalt`'s initial value is 1.
+*  We know for a fact that `serialLen` is always 25 (Refer to [sanitized_keygen.c](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/egg's%20keygenme%20-%20complex%20validation/sanitized_keygen.c)).
+* For convenience, let's assume both the `username` and `serialKey` inputs will be constituded of the same character, for instance:
+`./keygenme AAAAA AAAAAAAAAAAAAAAAAAAAAAAAA`
+* With that assumption, we can call the character forming the input string `x` for the equation we'll be working with.
+
+Before continuing, I'd like to highlight how the loop works.
+![Screenshot_20210111_103558](https://user-images.githubusercontent.com/28660375/104188995-d1b18900-53f8-11eb-90dc-2ecdb56177b2.png)
 
 
 
