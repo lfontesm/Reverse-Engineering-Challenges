@@ -108,7 +108,7 @@ And where the graphic crosses the absissa:
 
 ![Screenshot_20210111_112530](https://user-images.githubusercontent.com/28660375/104194198-bdbd5580-53ff-11eb-9b2a-7502548527f9.png)
 
-
+Sure enough, if we use what we've found as input for [sanitized_keygen.c](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/egg's%20keygenme%20-%20complex%20validation/sanitized_keygen.c), knowing that 78 is the ascii representation of the letter `'K'`
 
 
 
