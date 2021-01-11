@@ -169,5 +169,23 @@ Will give us:
 
 ![Screenshot_20210111_140257](https://user-images.githubusercontent.com/28660375/104214052-c28d0400-5415-11eb-8302-cd2212150ad9.png) ![Screenshot_20210111_140359](https://user-images.githubusercontent.com/28660375/104214176-e2bcc300-5415-11eb-80a9-daed4a5d0172.png)
 
+Finally arriving at the answer:
+```
+./sanitized_keygen $(python -c "print('E' * 464)") $(python -c "print('\x60'+'E' * 24)")
 
-
+Third case
+Key:                      116223
+username[0] * salt:       36777
+key + username[0] * salt: 153000
+Got here
+(a-b<0.0):                                                True
+(0<serialKey[0] - serialKey[19]):                         True
+(serialKey[12]+serialKey[7]<140):                         True
+(serialKey[10]*serialKey[8]<=serialKey[16]*serialKey[4]): True
+Correct serial Key!
+```
+Using this input on the right binary:
+```
+./keygenme $(python -c "print('E' * 464)") $(python -c "print('\x60'+'E' * 24)")
+Correct serial key!
+```
