@@ -132,7 +132,9 @@ if (((a-b<0.0) && (0<serialKey[0] - serialKey[19]) &&
          return 0;
 }
 ```
+Where `a = pow(serialKey[19], serialKey[1]);` and `b = pow(serialKey[0], serialKey[2]);`
 
-
+Note that condition 3 is the easiest to meet, you could play with the slidebar on [Desmos](https://www.desmos.com/) and find a value of `x` that satisfies said condition. I think `'D'` does it, but still it wouldn't meet the first two.
+Also note how both condition 1 and 2 are intertwined. For condition 1, we need `b > a`, and since our inputs are all composed by the same characters, if you pay close attention, all we need is that `'serialKey[0] > serialKey[any other pos]`, and that would automatically satisfy condition 2. Now all we need to do is tweek the equation a little bit and finally get to where we want. Lets assume `m = serialKey[0]`.
 
 
