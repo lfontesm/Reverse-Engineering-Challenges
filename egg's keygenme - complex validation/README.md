@@ -45,14 +45,14 @@ while (counter < serialLen){
 if (key == 153000 - username[0] * salt) ... 
 
 ```
-Where `serialLen = 25` and `salt = username[1] + userLen`
+Where `serialLen = 25` and `salt = username[1] + userLen` (Refer to [sanitized_keygen.c](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/egg's%20keygenme%20-%20complex%20validation/sanitized_keygen.c), we'll be forcing the third case of the if/else)
 
 Now this is pretty much all we need to reach the solution I did. We have all the tool need to convert this into an equantion:
 * `auxSalt`'s initial value is 1.
 *  We know for a fact that `serialLen` is always 25 (Refer to [sanitized_keygen.c](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/egg's%20keygenme%20-%20complex%20validation/sanitized_keygen.c)).
-* For convenience, let's assume both the `username` and `serialKey` inputs will be constituded of the same character, for instance:
+*  For convenience, let's assume both the `username` and `serialKey` inputs will be constituded of the same character, for instance:
 `./keygenme AAAAA AAAAAAAAAAAAAAAAAAAAAAAAA`
-* With that assumption, we can call the character forming the input string `x` for the equation we'll be working with.
+*  With that assumption, we can call the character forming the input string `x` for the equation we'll be working with.
 
 Before continuing, I'd like to highlight how the loop works, using a shorter version of `serialKey`, with `serialLen` of 4.
 
@@ -82,6 +82,15 @@ Which means, in terms of math operations:
 The point I'm trying to make is, given whichever length `serialKey` will have, the corresponding summation of operations will be:
 ```
     key = x + x^(serialLen-1)
+```
+In this case:
+```
+    key = x + x^3
+```
+
+Back to the matter at hand, we find that the final equation will have the form of:
+```
+    key = x + x^24
 ```
 
 
