@@ -56,8 +56,10 @@ Good. Everything is working how we expected. Lets try and see where the function
 ![Screenshot_20210113_113150](https://user-images.githubusercontent.com/28660375/104465575-f2154b00-5592-11eb-8afe-445e3d076aeb.png)
 ![Screenshot_20210113_113234](https://user-images.githubusercontent.com/28660375/104465674-0eb18300-5593-11eb-94dd-6920321868c9.png)
 
-So at `0x000055555555519c` we got the function that we are aiming for.
+So at `0x000055555555519c` we got the function that we are aiming for. And the program is working as expected, calling `normal()`, that is pointed by `string+0x68`. 
 
+![Screenshot_20210113_113842](https://user-images.githubusercontent.com/28660375/104466350-e6765400-5593-11eb-95e6-0087c63d6e78.png)
+![Screenshot_20210113_114021](https://user-images.githubusercontent.com/28660375/104466562-22111e00-5594-11eb-8aa3-27e3197a1c4b.png)
 
 
 
