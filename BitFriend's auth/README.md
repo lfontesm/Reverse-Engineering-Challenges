@@ -61,6 +61,23 @@ So at `0x000055555555519c` we got the function that we are aiming for. And the p
 ![Screenshot_20210113_113842](https://user-images.githubusercontent.com/28660375/104466350-e6765400-5593-11eb-95e6-0087c63d6e78.png)
 ![Screenshot_20210113_114021](https://user-images.githubusercontent.com/28660375/104466562-22111e00-5594-11eb-8aa3-27e3197a1c4b.png)
 
+Perfect. Now we can try messing around with the input a little bit. We'll be working with this input, what we're trying to accomplish here is to overwrite the address of `normal()` with `BBBBBBBB`, by passing a string that contains 0x68 A's, and ending with 8 B's. This should overflow the heap space allocated for the string, and write the B's at offset + 0x68 on it, therefore overwriting the function that was pointed by it. Lets see what happens.
+
+![Screenshot_20210113_114926](https://user-images.githubusercontent.com/28660375/104467705-6650ee00-5595-11eb-8f40-92185af8ca73.png)
+
+Sure enough, it works as expected. Now I'm sure most of you sohuld be thinking of overwriting it with something useful. A function address, perhaps? We already got the address of `authenticated()`... shall we try?
+
+![Screenshot_20210113_115505](https://user-images.githubusercontent.com/28660375/104468416-30f8d000-5596-11eb-81e2-3ecf31da2229.png)
+
+Since we are now working with bytes, we should use a proper input source. We'll redirect the input file to the program:
+
+![Screenshot_20210113_115636](https://user-images.githubusercontent.com/28660375/104468603-669db900-5596-11eb-9e20-050b1c96bb34.png)
+![Screenshot_20210113_115716](https://user-images.githubusercontent.com/28660375/104468693-7e753d00-5596-11eb-9da9-2ec857650587.png)
+![Screenshot_20210113_115744](https://user-images.githubusercontent.com/28660375/104468747-8df48600-5596-11eb-83aa-d271e52ccd41.png)
+
+Sure enough, working perfectly. Now the problem is solved, onto the next one... right? Well... not really.
+
+
 
 
 
