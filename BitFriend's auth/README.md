@@ -67,7 +67,7 @@ Perfect. Now we can try messing around with the input a little bit. We'll be wor
 
 Sure enough, it works as expected. Now I'm sure most of you sohuld be thinking of overwriting it with something useful. A function address, perhaps? We already got the address of `authenticated()`... shall we try?
 
-![Screenshot_20210113_115505](https://user-images.githubusercontent.com/28660375/104468416-30f8d000-5596-11eb-81e2-3ecf31da2229.png)
+![Screenshot_20210113_120701](https://user-images.githubusercontent.com/28660375/104469951-dceeeb00-5597-11eb-9c39-41df5165ecb2.png)
 
 Since we are now working with bytes, we should use a proper input source. We'll redirect the input file to the program:
 
@@ -77,7 +77,7 @@ Since we are now working with bytes, we should use a proper input source. We'll 
 
 Sure enough, working perfectly. Now the problem is solved, onto the next one... right? Well... not really. Lets try passing the same input without attaching the debugger:
 
-
+![Screenshot_20210113_120736](https://user-images.githubusercontent.com/28660375/104470028-f8f28c80-5597-11eb-9ce0-633b54125d12.png)
 
 ---
 
