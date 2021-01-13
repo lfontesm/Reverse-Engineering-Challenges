@@ -75,10 +75,10 @@ Since we are now working with bytes, we should use a proper input source. We'll 
 ![Screenshot_20210113_115716](https://user-images.githubusercontent.com/28660375/104468693-7e753d00-5596-11eb-9da9-2ec857650587.png)
 ![Screenshot_20210113_115744](https://user-images.githubusercontent.com/28660375/104468747-8df48600-5596-11eb-83aa-d271e52ccd41.png)
 
-Sure enough, working perfectly. Now the problem is solved, onto the next one... right? Well... not really.
+Sure enough, working perfectly. Now the problem is solved, onto the next one... right? Well... not really. Lets try passing the same input without attaching the debugger:
 
 
 
-
+---
 
 [Paper on format string vulnerability.](https://crypto.stanford.edu/cs155old/cs155-spring08/papers/formatstring-1.2.pdf)
