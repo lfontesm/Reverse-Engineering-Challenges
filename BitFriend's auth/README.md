@@ -31,6 +31,8 @@ Huh... now that is indeed interesting. So right out of the bat we know that ther
 
 Lets walkthrough it.
 
+1.
+1.
 
 
 
