@@ -89,6 +89,7 @@ And this is where the format string vulnerability we saw earlier comes in hand. 
 But unless you have an understanding about the ELF file format, it doesn't matter, you can just call it a stack string, but make sure you read the ELF format documentation :). You can find it easily online. You can even `man elf`.
 
 Now let us really take a look at that string:
+
 ![Screenshot_20210114_095820](https://user-images.githubusercontent.com/28660375/104593892-21898d80-564f-11eb-95f7-a748d99a028b.png)
 ![Screenshot_20210114_100750](https://user-images.githubusercontent.com/28660375/104594756-606c1300-5650-11eb-9693-36e1525027ae.png)
 
