@@ -106,9 +106,9 @@ The address we got was: `0x555555556030` and as we say earlier the address of `a
 So we write the program that will deliver the malicious input, and boom:
 ![Screenshot_20210114_101959](https://user-images.githubusercontent.com/28660375/104595960-11bf7880-5652-11eb-849c-b6ba3b4b4bb2.png)
 
-It's done! [Here's the source of authPwn.py,](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/BitFriend's%20auth/authPwn.py) it's really simple. I'll try to leave some important links as footnotes as well.
+It's done! [Here's the source for authPwn.py,](https://github.com/lfontesm/Reverse-Engineering-Challenges/blob/main/BitFriend's%20auth/authPwn.py) it's really simple. I'll try to leave some important links as footnotes as well.
 
-This crackme involved really important knowledges, such as: format string vulnerability, return oriented programming, heap overflow, and exploit development. And the best part is, it wasn't super difficult! This is an amazing crackme for people that are only starting, so I though it would be a good idea to bring this here.
+This crackme involved really important knowledges, such as: format string vulnerability, return oriented programming, heap overflow, and exploit development. And the best part is, it wasn't super difficult! This is an amazing crackme for people that are only starting, so I though it would be a good idea to bring this here. If there's any concept you didn't understand, feel free to contact me, but I highly encourage you to look on your own. Have fun :)
 
 ---
 
