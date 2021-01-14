@@ -79,7 +79,33 @@ Sure enough, working perfectly. Now the problem is solved, onto the next one... 
 
 ![Screenshot_20210113_120736](https://user-images.githubusercontent.com/28660375/104470028-f8f28c80-5597-11eb-9ce0-633b54125d12.png)
 
-(More tomorrow)
+What is going on? It was just working, so why is it crashing?
+The answer is [ASLR](https://www.fireeye.com/blog/threat-research/2020/03/six-facts-about-address-space-layout-randomization-on-windows.html), in summary, what's going on is in each execution, the address space of the program gets randomized. But this begs the question: so why when we executed the program on the debugger, the addresses of functions never changed?
+The answer is that GDB disables ASLR by default.
+
+And this is where the format string vulnerability we saw earlier comes in hand. Assembly language uses relative offsets to make references to memory location, meaning, no matter where they are mapped in memory, the offsets between two functions will always be the same. Firing back GDB again, lets take a look at that interesting stack string. But first of, let me just clarify something. I've been calling it stack string just for the sake of convenience and understanding, in actuality, this is located at `.rodata` section:
+![Screenshot_20210114_100424](https://user-images.githubusercontent.com/28660375/104594448-eb004280-564f-11eb-9d6b-22c59615a1bc.png)
+
+But unless you have an understanding about the ELF file format, it doesn't matter, you can just call it a stack string, but make sure you read the ELF format documentation :). You can find it easily online. You can even `man elf`.
+
+Now let us really take a look at that string:
+![Screenshot_20210114_095820](https://user-images.githubusercontent.com/28660375/104593892-21898d80-564f-11eb-95f7-a748d99a028b.png)
+![Screenshot_20210114_100750](https://user-images.githubusercontent.com/28660375/104594756-606c1300-5650-11eb-9693-36e1525027ae.png)
+
+It seems to be cut off. Lets take a look at the code and see if we find it's original pointer:
+![Screenshot_20210114_101003](https://user-images.githubusercontent.com/28660375/104594965-af19ad00-5650-11eb-80b8-ec3424225aa2.png)
+
+We can see a lot of references to adresses like `0x5555555560xx`. Lets try printing one of those.
+![Screenshot_20210114_101110](https://user-images.githubusercontent.com/28660375/104595086-d7a1a700-5650-11eb-85d0-03e443e850f3.png)
+
+Great, it is for a fact a string that was used inside of the code. That means we can calculate the offset from the address we got using the format string vulnerability to the `authenticated()` function.
+
+The address we got was: `0x555555556030` and as we say earlier the address of `authenticated()` was `0x55555555519c`. Calculating the relative offset gives us: `0x555555556030 - 0x55555555519c = 0xe94`. Meaning `authenticated()` is located 0xe94 "below" the string during the code execution. And thats pretty much it. This is what we needed to complete the challenge. I'll use pwntools to execute the exploit. I won't cover how the tool works because first, I'm not an expert on it, and second, it's not the intention of the series to explain how tool works. The documentation is very good and easy to understand. I recommend you taking a look at it.
+
+So we write the program that will deliver the malicious input, and boom:
+![Screenshot_20210114_101959](https://user-images.githubusercontent.com/28660375/104595960-11bf7880-5652-11eb-849c-b6ba3b4b4bb2.png)
+
+It's done!
 
 ---
 
