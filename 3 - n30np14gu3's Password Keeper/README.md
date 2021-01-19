@@ -22,7 +22,7 @@ If you think like me, you'd look for the strings that are being shown in the out
 
 ### Second step - Static analysis. Open the binary on your favorite disassembler
 
-Right at the beginnig we can see the program is acessing `fs:[30]`. This is the [PEB.](https://en.wikipedia.org/wiki/Process_Environment_Block) If you are not familiar with it, I encourage you to look it up, malware commonly access this region in orther to to stealthy operations such as dynammically resolve IAT. Which is exactly what this code is doing. Lets take a look at it. Open the screenshot bellow in another tab because it will be useful.
+Right at the beginnig we can see the program is acessing `fs:[30]`. This is the [PEB.](https://en.wikipedia.org/wiki/Process_Environment_Block) If you are not familiar with it, I encourage you to look it up, malware commonly access this region in orther to to stealthy operations such as dynammically resolve IAT. Which is exactly what this code is doing. Lets take a look at it. Open the screenshot below in another tab because it will be useful.
 
 ![Screenshot_20210119_133658](https://user-images.githubusercontent.com/28660375/105064287-723c2480-5a5b-11eb-9caa-0007a3599f8a.png)
 
@@ -56,9 +56,18 @@ It then creates a stack string, wich is another form of string obfuscation commo
 
 From the screenshots above we can tell it uses the string as `"user32.dll"` as an argument to the function retrieved from the export table of a certain module. Everything will come to light during dynamic analysis, but the function being dynamically resolve is `LoardLibraryA`.
 
+The next part of the code to be analysed is below.
+
+![Screenshot_20210119_144758](https://user-images.githubusercontent.com/28660375/105073163-79683000-5a65-11eb-9ea2-b9c301db89dc.png)
+
+
+
+
+
+
 ---
 
-###### Useful links
+##### Useful links
 
 * PEB
   * https://secureyourit.co.uk/wp/2020/04/12/walking-the-peb-with-vba-x64/
