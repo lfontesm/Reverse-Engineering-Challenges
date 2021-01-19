@@ -6,3 +6,8 @@ First things first, I'll try to explain the inner workings of it the best I can,
 
 This crackme is targeted for the Windows platform, which means you will need necessary knowledge on the [PE binary format.](https://docs.microsoft.com/en-us/windows/win32/debug/pe-format) If you don't, go ahead and read up on it, [it's super necessary.](https://giphy.com/gifs/masvidal-super-necessary-TgP6vdMSAknVWzoC05/fullscreen)
 
+The VM I use for Windows Reverse Engineering is [Flare VM](https://github.com/fireeye/flare-vm), it comes with a very useful set of tools and very rarely do I need to inflastall new tools. This should be more than enough for most levels of reverse engineers.
+
+This crackme comes with 2 files:
+* The executable PasswordKeeper.exe
+* A database called passwords.db
