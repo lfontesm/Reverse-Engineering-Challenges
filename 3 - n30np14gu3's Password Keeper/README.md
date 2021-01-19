@@ -17,6 +17,29 @@ This crackme comes with 2 files:
 If you execute the binary, it will ask for a password, if you type `"test"`, it will produce the output:
 
 ![Screenshot_20210119_131924](https://user-images.githubusercontent.com/28660375/105062088-f8a33700-5a58-11eb-8578-95a4ef70d66a.png)
+
 If you think like me, you'd look for the strings that are being shown in the output inside the binary and set breakpoints near them to look for the password. I said in the beggining of the post that I wouldn't beat around the bush too much, so long story short, it doesn't work. The strings are being constructed during runtime, meaning they are obfuscated.
 
 ### Second step - Static analysis. Open the binary on your favorite disassembler
+
+Right at the beginnig we can see the program is acessing `fs:[30]`. This is the [PEB.](https://en.wikipedia.org/wiki/Process_Environment_Block) If you are not familiar with it, I encourage you to look it up, malware commonly access this region in orther to to stealthy operations such as dynammically resolve IAT. Which is exactly what this code is doing. Lets take a look at it.
+
+![Screenshot_20210119_133658](https://user-images.githubusercontent.com/28660375/105064287-723c2480-5a5b-11eb-9caa-0007a3599f8a.png)
+
+The screenshot is already telling a whole tail. I'll try to explain this the best way I can, since I'm only a curious student, I may get some things wrong, but I'm confident that I have enough knowlegde on what I'm about to explain. I'll use WinDbg for this one.
+
+Inside WinDbg, you can use `dt _peb @$peb` to access it's fields and their respective mapping in the VA.
+
+![Screenshot_20210119_134458](https://user-images.githubusercontent.com/28660375/105065356-8b91a080-5a5c-11eb-868a-adf64ed1b464.png)
+
+
+
+
+
+
+
+
+
+
+
+
