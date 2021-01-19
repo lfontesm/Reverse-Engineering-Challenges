@@ -51,6 +51,14 @@ Upon successfully finding an ET, The program accesses the fields NumberOfNames a
 ![Screenshot_20210119_141819](https://user-images.githubusercontent.com/28660375/105069790-2f7d4b00-5a61-11eb-8fab-23d027f37039.png) ![Screenshot_20210119_141854](https://user-images.githubusercontent.com/28660375/105069876-4a4fbf80-5a61-11eb-8ca6-aeff93241d2c.png) ![Screenshot_20210119_141930](https://user-images.githubusercontent.com/28660375/105069922-5b003580-5a61-11eb-962e-42af514423e6.png) ![Screenshot_20210119_142013](https://user-images.githubusercontent.com/28660375/105070012-75d2aa00-5a61-11eb-8d46-2d9d2293c99c.png)
 
 
+---
+
+###### Useful links
+
+* PEB
+  * https://secureyourit.co.uk/wp/2020/04/12/walking-the-peb-with-vba-x64/
+  * https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/exploring-process-environment-block
+  * https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/exploring-process-environment-block
 
 
 
