@@ -32,6 +32,17 @@ Inside WinDbg, you can use `dt _peb @$peb` to access it's fields and their respe
 
 ![Screenshot_20210119_134458](https://user-images.githubusercontent.com/28660375/105065356-8b91a080-5a5c-11eb-868a-adf64ed1b464.png)
 
+If you pay close attention to the IDA screenshot, you'll see the program making access to what could be struct fields in the PEB (`mox eax, [eax+0xc]`, `mov esi, [eax+0x18]`). The process is trying to access the modules loaded along with the binary, they are a doubly linked list and we can access them in WinDbg.
+
+PEB + 0xc = PEB_LDR_DATA
+
+![Screenshot_20210119_135149](https://user-images.githubusercontent.com/28660375/105066329-82550380-5a5d-11eb-920a-d961aebb33ed.png)
+
+PEB_LDR_DATA + 0xc = InLoadOrderModuleList.
+
+![Screenshot_20210119_135346](https://user-images.githubusercontent.com/28660375/105066649-c6480880-5a5d-11eb-9771-454d242e41dd.png)
+
+InLoardOrderModuleList is the doubly linked list we were talking about. You can see it's fields on the screenshot above. The pointer to the next item in the list is in offset 0. In offset 0x18 is the DllBase, meaning, the starting virtual address in which the library is loaded in the virtual memory. Note that in the screenshot above, the module it's pointing to is the binary itself, and it will always be for every binary, the first item on the InLoadOrderModuleList will always be the binary itself.
 
 
 
