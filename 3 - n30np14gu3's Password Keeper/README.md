@@ -60,11 +60,15 @@ The next part of the code to be analysed is below.
 
 ![Screenshot_20210119_144758](https://user-images.githubusercontent.com/28660375/105073163-79683000-5a65-11eb-9ea2-b9c301db89dc.png)
 
+Have a moment to digest the code above. But lets jump right into `open_passwd_db` (note that from this point on due to ASLR the following screenshots will present different offsets from the previous, and all of the comments and renaming are lost, since I accidentaly deleted the old `.idb` file).
 
+![Screenshot_20210120_185804](https://user-images.githubusercontent.com/28660375/105246093-86624d80-5b51-11eb-87bf-b431ce3bebb5.png)
 
-More tomorrow.
+From this screenshot it's pretty clear that this function is opening the passwords.db file (hence why I renamed it `open_passwd_db`). But note how a big number is stored into v11, then the program loops v11 xoring each char with 0xC. This might as well be decrypting the string `password.db` in run time. And it is indeed what's happening, you can check it during dynamic analysis.
 
+![Screenshot_20210120_191146](https://user-images.githubusercontent.com/28660375/105247369-73507d00-5b53-11eb-98e0-e3c5363c8206.png)
 
+It also decrypts the string `"rb"`, which is the mode the file is going to be open (read + binary). But IDA spoils the fun and already shows the string decrypted on the decompiler.
 
 ---
 
