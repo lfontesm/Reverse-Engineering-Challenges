@@ -103,7 +103,19 @@ It contains our input string, and two others that most likely represent the stri
 
 Inside `Block` I'll put a breakpoint in the end of a routine that looks to be another decryption of a string. We will follow this string in dump.
 
-![Screenshot_20210121_085014](https://user-images.githubusercontent.com/28660375/105347455-b1868480-5bc5-11eb-9400-91e899428766.png)
+![Screenshot_20210121_085014](https://user-images.githubusercontent.com/28660375/105347455-b1868480-5bc5-11eb-9400-91e899428766.png) ![Screenshot_20210121_085742](https://user-images.githubusercontent.com/28660375/105348228-c879a680-5bc6-11eb-91c1-3ccb9d8e5721.png)
+
+It then iterates both our input and the recently decrypted string and compare them character by character, xor'ing the characters in the string with 0x13 before the comparison. With our provided input, the program will fail and branch to it's end after the first character.
+
+But we can easily do something like:
+
+![Screenshot_20210121_090500](https://user-images.githubusercontent.com/28660375/105348936-c2d09080-5bc7-11eb-81ab-f930144754f7.png)
+
+And if we provide this string as input to the program:
+
+![Screenshot_20210121_090610](https://user-images.githubusercontent.com/28660375/105349057-eabff400-5bc7-11eb-9659-c5388270fafa.png)
+
+And that's it. I may have made it easier than it looks like, but I spent quite a bit of time on this one, and I loved it. This crackme uses commonly used malware techniques such as dinamic IAT resolving, string obfuscation and even works as a "droper" for the executable `passwords.db`. I recommend you digest every single piece of code on this one, you may learn a lot. I certainly did!
 
 ---
 
@@ -111,7 +123,7 @@ Inside `Block` I'll put a breakpoint in the end of a routine that looks to be an
 
 * PEB
   * https://secureyourit.co.uk/wp/2020/04/12/walking-the-peb-with-vba-x64/
-  * https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/exploring-process-environment-block
+  * https://ntopcode.wordpress.com/2018/02/26/anatomy-of-the-process-environment-block-peb-windows-internals/
   * https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/exploring-process-environment-block
 
 
