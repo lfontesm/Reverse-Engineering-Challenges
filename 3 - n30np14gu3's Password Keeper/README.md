@@ -68,9 +68,30 @@ From this screenshot it's pretty clear that this function is opening the passwor
 
 ![Screenshot_20210120_191146](https://user-images.githubusercontent.com/28660375/105247369-73507d00-5b53-11eb-98e0-e3c5363c8206.png)
 
-It also decrypts the string `"rb"`, which is the mode the file is going to be open (read + binary). But IDA spoils the fun and already shows the string decrypted on the decompiler.
+It also decrypts the string `"rb"`, which is the mode the file is going to be open (read + binary). But IDA spoils the fun and already shows the decrypted string on the decompiler.
 
-More tomorrow
+From the looks of it, looks like the program is reading the content of the file (function `fread_s`) in a variable I renamed `buffer`. It then passes this buffer as an argument to `sub_401850()` and the content is returned into a variable Hex-Rays named `Block`.
+
+![Screenshot_20210121_075535](https://user-images.githubusercontent.com/28660375/105341603-0de5a600-5bbe-11eb-91ed-ff3e93fdab0a.png)
+
+Looks like the function is also a decryptor, and it decrypts the content read from the file and it's result is probably passed to `Block`. Back to the main function, we will jump to what is now `sub_401150`. The program reaches this function after it reads our input.
+
+We immediately notice the same logic of accessing the PEB, export table all over again, the program does it 4 times before executing a different routine.
+
+![Screenshot_20210121_081752](https://user-images.githubusercontent.com/28660375/105344039-2c996c00-5bc1-11eb-9f88-b23bb8fc4283.png)
+
+I will skip all the way to the beggining of the routine. If this is your first time in this challenge, I recommend you check what is happening during dynamic analysis.
+
+Below is the routine I mentioned:
+
+![Screenshot_20210121_081916](https://user-images.githubusercontent.com/28660375/105344170-5f436480-5bc1-11eb-80bb-04e0e79c3d28.png)
+
+Three particular instructions catches our eyes: `call esi`, `call Block`, `call esi`. But the most interesting one is the second, the program is branching it's execution to the _allegedly_ decrypted content of the `passwords.db` file. Interesting, so that possibly means that we fell victim of the ol' switcharoo, and `passwords.db` may actually be encrypted executable code. And now it's due time we see what the hell is going on.
+
+
+### Third Step - Dynamic Analysis. Open the binary on your favorite debugger
+
+I'll be using x64dbg.
 
 ---
 
