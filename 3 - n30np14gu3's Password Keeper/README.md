@@ -99,7 +99,11 @@ I've already set a breakpoint on the `call Block` instruction. When we reach the
 
 ![Screenshot_20210121_083843](https://user-images.githubusercontent.com/28660375/105346236-150fb280-5bc4-11eb-9499-c555a55f717d.png)
 
-It contains our input string, and two others that most likely represent the strings that show up when we provide the correct or wrong input.
+It contains our input string, and two others that most likely represent the strings that show up when we provide the correct or wrong input. I'll press F7 to step into the function pointed by `Block`.
+
+Inside `Block` I'll put a breakpoint in the end of a routine that looks to be another decryption of a string. We will follow this string in dump.
+
+![Screenshot_20210121_085014](https://user-images.githubusercontent.com/28660375/105347455-b1868480-5bc5-11eb-9400-91e899428766.png)
 
 ---
 
