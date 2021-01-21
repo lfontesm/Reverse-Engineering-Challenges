@@ -7,5 +7,5 @@ This repository is made for people that are trying to verse themselves in inform
 
 ### Other subjects:
 * #### Linux Kernel Development
-On this repository I'll document my journey on learning Linux Kernel Programming, and eventually I hope I'll be able to reproduce a PoC for known and already patched vulnerabilites.
-  * https://github.com/lfontesm/linux-kernel-development
+ _On this repository I'll document my journey on learning Linux Kernel Programming, and eventually I hope I'll be able to reproduce a PoC for known and already    patched vulnerabilites._
+ https://github.com/lfontesm/linux-kernel-development
