@@ -91,7 +91,15 @@ Three particular instructions catches our eyes: `call esi`, `call Block`, `call 
 
 ### Third Step - Dynamic Analysis. Open the binary on your favorite debugger
 
-I'll be using x64dbg.
+I'll be using x64dbg. The first thing I'll do is rebase the program on IDA so that the alignment between the debugger and disassembler match up.
+
+![Screenshot_20210121_083358](https://user-images.githubusercontent.com/28660375/105345765-6b302600-5bc3-11eb-84c1-f9b1cab3060d.png) ![Screenshot_20210121_083502](https://user-images.githubusercontent.com/28660375/105345880-9155c600-5bc3-11eb-88d1-ec84ee2f3e13.png)
+
+I've already set a breakpoint on the `call Block` instruction. When we reach the breakpoint, it's interesting to note the stack content:
+
+![Screenshot_20210121_083843](https://user-images.githubusercontent.com/28660375/105346236-150fb280-5bc4-11eb-9499-c555a55f717d.png)
+
+It contains our input string, and two others that most likely represent the strings that show up when we provide the correct or wrong input.
 
 ---
 
